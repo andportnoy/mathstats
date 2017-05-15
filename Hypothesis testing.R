@@ -1,4 +1,5 @@
-ht <- function(y_bar, mu, sigma, n, alpha, sides) {
+# normal distribution hypothesis test
+nht <- function(y_bar, mu, sigma, n, alpha, sides) {
   curve(dnorm(x, mean=mu, sd=sigma), from=mu-2*sigma, to=mu+2*sigma)
   abline(v=y_bar, col='blue')
   if (sides == 1 | sides == -1) { # one-sided 
@@ -30,7 +31,7 @@ ht <- function(y_bar, mu, sigma, n, alpha, sides) {
     }
     print(paste('Cutoff zscore =', round(zscore, 2)))
     print(paste("Y_bar zscore =", round(z_y_bar, 2)))
-    print(paste('The p-value is', round(pnorm(z_y_bar, lower.tail=sides<0), 2)))
+    print(paste('The p-value is', round(pnorm(z_y_bar, lower.tail=sides<0), 3)))
     
   } else if (sides == 0) { # two-sided
     
@@ -61,4 +62,9 @@ ht <- function(y_bar, mu, sigma, n, alpha, sides) {
     print(paste("Y_bar zscore =", round(z_y_bar, 2)))
     print(paste('The p-value is', round(2*(1 - pnorm(z_y_bar)), 3)))
   }
+}
+
+# binomial distribution hypothesis testing
+bht <- function(k, n, p_0, alpha, sides) {
+
 }
