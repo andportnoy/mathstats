@@ -66,5 +66,5 @@ nht <- function(y_bar, mu, sigma, n, alpha, sides) {
 
 # binomial distribution hypothesis testing
 bht <- function(k, n, p_0, alpha, sides) {
-
+  nht(k, n*p_0, sqrt(n*n*p*(1-p)), n, alpha, sides)
 }
